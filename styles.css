@@ -32,7 +32,7 @@ body {
     align-items: center;
   }
   
-  .red, .blue {
+  .red {
     color: #e74c3c; /* Red color for the "RED" string and counter */
     font-size: 36px; /* Larger font size for the "RED" string */
     width: 60px; /* Fixed width for the table cells */
