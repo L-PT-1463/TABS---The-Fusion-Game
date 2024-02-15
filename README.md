@@ -7,7 +7,9 @@
 Features:
 
 Unit Fusion: Players can fuse the existing units of the game into each other with predefined recipes. Experiment with different combinations to discover the most effective strategies on the battlefield.
+
 Faction Unlocking: Progress through the game by unlocking different factions, each with its own set of units and characteristics. As you unlock more factions, you gain access to a diverse range of units to use in battle.
+
 Interactive Manual: The GitHub page includes an easy-to-understand manual, featuring interactive menus for fusion recipes and faction unlockings. Players can easily navigate through the manual to learn the rules and mechanics of the gamemode. As well as a dynamic point and action counter to keep track of your progress and actions during battles.
 
 Feedback and Support:
