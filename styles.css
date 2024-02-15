@@ -14,10 +14,15 @@ body {
   header {
     background-color: #545454; /* A darker header background color */
     color: #f4f4f4;
-    padding: 10px;
     text-align: center;
     width: 100%;
     margin-bottom: 0; /* Adjusted margin to remove the gap */
+    font-size: 40px;
+  }
+
+  .header {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   
   #score-table {
@@ -103,9 +108,42 @@ body {
   footer {
     background-color: #545454; /* A darker footer background color */
     color: #f4f4f4;
-    padding: 5px; /* Adjusted padding for a thinner footer */
+    padding: 5x; /* Adjusted padding for a thinner footer */
     text-align: center;
     width: 100%;
     position: fixed;
     bottom: 0;
+    font-size: 12px;
   }
+
+/* Adjust the size of the images */
+  img[src*="Red_"] {
+    max-width: 150px;
+    max-height: 150px;
+    margin-bottom: 10px;
+}
+
+  /* Adjust the size of icons */
+  img[src*="_HD_Icon.png"] {
+    max-width: 25px;
+    max-height: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+  .faction {
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .tier {
+    margin-top: 20px;
+}
+
+  .unit {
+    margin-top: 20px;
+}
+
+  .sub_unit {
+    margin-top: 1px;
+}
