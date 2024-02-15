@@ -21,8 +21,8 @@ function updateAvailableActions() {
     let availableActions = 1 + Math.floor(totalScore / 15);
   
     const actionsInfo = document.getElementById('actions-info');
-    actionsInfo.innerHTML = `<p>Available Actions:</p><p><span class="numbers">${availableActions} / ${availableActions + 1}</span></p>`;
-  }
+    actionsInfo.innerHTML = `<p>Available Actions:</p><p><span class="numbers">${availableActions}</span></p>`;
+  }  
   
 document.getElementById('plus1').addEventListener('click', function () {
   score1++;
