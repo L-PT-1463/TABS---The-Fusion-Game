@@ -12,8 +12,18 @@ function updateScoreDisplay(score, elementId) {
   setTimeout(() => {
     element.style.color = ''; // Reset to original color
   }, 500);
+
+  updateAvailableActions();
 }
 
+function updateAvailableActions() {
+    const totalScore = score1 + score2;
+    let availableActions = 1 + Math.floor(totalScore / 15);
+  
+    const actionsInfo = document.getElementById('actions-info');
+    actionsInfo.innerHTML = `<p>Available Actions:</p><p><span class="numbers">${availableActions} / ${availableActions + 1}</span></p>`;
+  }
+  
 document.getElementById('plus1').addEventListener('click', function () {
   score1++;
   updateScoreDisplay(score1, 'score1');
@@ -45,23 +55,16 @@ document.getElementById('reset').addEventListener('click', function () {
   updateScoreDisplay(score2, 'score2');
 });
 
-// Event listener for "b" key released
 document.addEventListener('keyup', function (event) {
   if (event.key === 'b') {
     score2++;
     updateScoreDisplay(score2, 'score2');
-  }
-});
-
-// Event listener for "r" key released
-document.addEventListener('keyup', function (event) {
-  if (event.key === 'r') {
+  } else if (event.key === 'r') {
     score1++;
     updateScoreDisplay(score1, 'score1');
   }
 });
 
-// Function to flash text to white
 function flashText(elementId) {
   const element = document.getElementById(elementId);
   element.style.transition = 'color 0.5s';
@@ -70,3 +73,5 @@ function flashText(elementId) {
     element.style.color = ''; // Reset to original color
   }, 500);
 }
+
+updateAvailableActions(); // Initial call to set up available actions on page load
