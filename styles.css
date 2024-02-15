@@ -76,15 +76,10 @@ body {
     margin-top: 10px; /* Added margin for spacing */
   }
   
-  #actions-info .numbers {
+  #actions-info .numbers, .additional-actions {
     font-size: 30px; /* Adjusted font size for the numbers */
-  }
-
-  .additional-actions {
-    font-size: 30px; /* Adjust the font size as needed */
     font-weight: bold; /* Optional: Make it bold */
-    color: #ffcc00; /* Optional: Set a specific color */
-}
+  }
   
   /* Adjusted styles for the + and - buttons */
   button#plus1,

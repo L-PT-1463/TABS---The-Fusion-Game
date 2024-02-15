@@ -7,15 +7,12 @@ function updateScoreDisplay(score, elementId) {
   element.textContent = formattedScore;
 
   // Flash effect on score change
-  element.style.transition = 'color 0.3s';
-  element.style.color = '#ffffff'; // Flash to white
-  setTimeout(() => {
-    element.style.color = ''; // Reset to original color
-  }, 500);
-
+  flashText(elementId);
   updateAvailableActions();
 }
 
+let previousAvailableActions = 0;
+let previousAdditionalActions = 0;
 function updateAvailableActions() {
     const totalScore = score1 + score2;
     let availableActions = 1 + Math.floor(totalScore / 15);
@@ -23,8 +20,18 @@ function updateAvailableActions() {
 
     const actionsInfo = document.getElementById('actions-info');
     actionsInfo.innerHTML = `<p>Available Actions:</p>
-                             <p><span class="numbers">${availableActions}</span></p>
-                             <p><span class="additional-actions">+ ${additionalActions}</span> for the loser</p>`;
+                             <p><span class="numbers" id="available-actions">${availableActions}</span></p>
+                             <p><span class="additional-actions" id="additional-actions">+ ${additionalActions}</span> for the loser</p>`;
+
+    // Flash effect on available actions change
+    if (availableActions > previousAvailableActions) {
+        flashTextYellow('available-actions');
+    }
+    if (additionalActions > previousAdditionalActions) {
+        flashTextYellow('additional-actions');
+    }
+     previousAvailableActions = availableActions;
+     previousAdditionalActions = additionalActions;
 }
   
 document.getElementById('plus1').addEventListener('click', function () {
@@ -51,6 +58,8 @@ document.getElementById('reset').addEventListener('click', function () {
   // Flash to white before resetting
   flashText('score1');
   flashText('score2');
+  flashTextYellow('available-actions');
+  flashTextYellow('additional-actions');
 
   score1 = 0;
   score2 = 0;
@@ -76,5 +85,14 @@ function flashText(elementId) {
     element.style.color = ''; // Reset to original color
   }, 500);
 }
+
+function flashTextYellow(elementId) {
+    const element = document.getElementById(elementId);
+    element.style.transition = 'color 0.5s';
+    element.style.color = '#ffcc00'; // Flash to white
+    setTimeout(() => {
+      element.style.color = ''; // Reset to original color
+    }, 500);
+  }
 
 updateAvailableActions(); // Initial call to set up available actions on page load
