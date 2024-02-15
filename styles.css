@@ -3,16 +3,20 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    background-color: #1a1a1a; /* Dark mode background color */
+    color: #fff; /* Dark mode font color */
+    position: relative;
   }
   
   header {
-    background-color: #3498db;
+    background-color: #333; /* Dark mode header background color */
     color: #fff;
     padding: 10px;
     text-align: center;
+    width: 100%;
+    margin-bottom: 0; /* Adjusted margin to remove the gap */
   }
   
   #score-table {
@@ -22,24 +26,57 @@ body {
   }
   
   .player {
-    margin: 0 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column; /* Display scores in a column */
+    align-items: center;
   }
   
-  button {
-    font-size: 16px;
-    padding: 5px 10px;
-    margin: 5px;
+  .red {
+    color: red; /* Red color for the "RED" string and counter */
+    font-size: 36px; /* Larger font size for the "RED" string */
+    min-width: 250px;
+  }
+  
+  .blue {
+    color: blue; /* Blue color for the "BLUE" string and counter */
+    font-size: 36px; /* Larger font size for the "BLUE" string */
+    min-width: 250px;
   }
   
   span {
-    font-size: 36px; /* Increased font size for the score numbers */
+    font-size: 150px; /* Size of the buttons */
     font-weight: bold;
   }
   
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    font-size: 24px;
+    margin: 5px;
+  }
+  
+  /* Adjusted styles for the + and - buttons */
+  button#plus1,
+  button#plus2 {
+    padding: 20px; /* Set padding as a percentage of the button size */
+    font-size: 100%; /* Make font size fill up the button size */
+  }
+  
+  button#minus1,
+  button#minus2 {
+    padding: 10px; /* Set padding as a percentage of the button size */
+    font-size: 100%; /* Make font size fill up the button size */
+  }
+  
   footer {
-    background-color: #34495e;
+    background-color: #333; /* Dark mode footer background color */
     color: #fff;
-    padding: 10px;
+    padding: 5px; /* Adjusted padding for a thinner footer */
     text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
   }  
