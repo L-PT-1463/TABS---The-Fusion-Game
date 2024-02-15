@@ -12,7 +12,9 @@ body {
   }
   
   header {
-    background-color: #545454; /* A darker header background color */
+    background-image: url('images/tabs_header.jpg'); /* Set the background image */
+    background-size: cover; /* Cover the entire header with the background image */
+    background-position: 100% 70%; /* Center the background image */
     color: #f4f4f4;
     text-align: center;
     width: 100%;
@@ -23,6 +25,7 @@ body {
   .header {
     margin-top: 10px;
     margin-bottom: 10px;
+    text-shadow: 3px 3px 1px #3b3b3b;
   }
   
   #score-table {
