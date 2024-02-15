@@ -34,16 +34,16 @@ document.getElementById('reset').addEventListener('click', function() {
   updateScoreDisplay(score2, 'score2');
 });
 
-// Event listener for "b" key
-document.addEventListener('keydown', function(event) {
+// Event listener for "b" key released
+document.addEventListener('keyup', function(event) {
   if (event.key === 'b') {
     score2++;
     updateScoreDisplay(score2, 'score2');
   }
 });
 
-// Event listener for "r" key
-document.addEventListener('keydown', function(event) {
+// Event listener for "r" key released
+document.addEventListener('keyup', function(event) {
   if (event.key === 'r') {
     score1++;
     updateScoreDisplay(score1, 'score1');

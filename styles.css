@@ -1,18 +1,19 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Impact', sans-serif; /* A bold, display font */
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #1a1a1a; /* Dark mode background color */
-    color: #fff; /* Dark mode font color */
+    background-color: #3b3b3b; /* A dark background color */
+    color: #f4f4f4; /* Light font color */
     position: relative;
+    letter-spacing: 2px; /* Added letter spacing */
   }
   
   header {
-    background-color: #333; /* Dark mode header background color */
-    color: #fff;
+    background-color: #545454; /* A darker header background color */
+    color: #f4f4f4;
     padding: 10px;
     text-align: center;
     width: 100%;
@@ -31,15 +32,17 @@ body {
     align-items: center;
   }
   
-  .red {
-    color: red; /* Red color for the "RED" string and counter */
+  .red, .blue {
+    color: #e74c3c; /* Red color for the "RED" string and counter */
     font-size: 36px; /* Larger font size for the "RED" string */
+    width: 60px; /* Fixed width for the table cells */
     min-width: 250px;
   }
   
   .blue {
-    color: blue; /* Blue color for the "BLUE" string and counter */
+    color: #3498db; /* Blue color for the "BLUE" string and counter */
     font-size: 36px; /* Larger font size for the "BLUE" string */
+    width: 60px; /* Fixed width for the table cells */
     min-width: 250px;
   }
   
@@ -72,11 +75,12 @@ body {
   }
   
   footer {
-    background-color: #333; /* Dark mode footer background color */
-    color: #fff;
+    background-color: #545454; /* A darker footer background color */
+    color: #f4f4f4;
     padding: 5px; /* Adjusted padding for a thinner footer */
     text-align: center;
     width: 100%;
     position: fixed;
     bottom: 0;
-  }  
+  }
+  
