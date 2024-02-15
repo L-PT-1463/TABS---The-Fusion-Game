@@ -37,6 +37,7 @@ body {
     font-size: 36px; /* Larger font size for the "RED" string */
     width: 60px; /* Fixed width for the table cells */
     min-width: 250px;
+    text-transform: uppercase; /* Make the text all capital letters */
   }
   
   .blue {
@@ -44,6 +45,7 @@ body {
     font-size: 36px; /* Larger font size for the "BLUE" string */
     width: 60px; /* Fixed width for the table cells */
     min-width: 250px;
+    text-transform: uppercase; /* Make the text all capital letters */
   }
   
   span {
@@ -57,8 +59,10 @@ body {
   }
   
   button {
+    font-family: 'Impact', sans-serif;
     font-size: 24px;
     margin: 5px;
+    text-transform: uppercase; /* Make the text all capital letters */
   }
   
   /* Adjusted styles for the + and - buttons */
@@ -72,6 +76,12 @@ body {
   button#minus2 {
     padding: 10px; /* Set padding as a percentage of the button size */
     font-size: 100%; /* Make font size fill up the button size */
+  }
+
+  button#reset {
+    font-family: 'Impact', sans-serif; /* Set font for the Reset button */
+    padding: 10px 20px; /* Adjusted padding for the Reset button */
+    font-size: 24px; /* Font size for the Reset button */
   }
   
   footer {
