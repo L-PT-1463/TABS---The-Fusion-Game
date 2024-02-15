@@ -19,10 +19,12 @@ function updateScoreDisplay(score, elementId) {
 function updateAvailableActions() {
     const totalScore = score1 + score2;
     let availableActions = 1 + Math.floor(totalScore / 15);
-  
+    let additionalActions = 1 + Math.floor(totalScore / 30);
+
     const actionsInfo = document.getElementById('actions-info');
-    actionsInfo.innerHTML = `<p>Available Actions:</p><p><span class="numbers">${availableActions}</span></p>`;
-  }  
+    actionsInfo.innerHTML = `<p>Available Actions:</p><p><span class="numbers">${availableActions}</span></p>
+                             <p>+ ${additionalActions} for the loser</p>`;
+}
   
 document.getElementById('plus1').addEventListener('click', function () {
   score1++;
