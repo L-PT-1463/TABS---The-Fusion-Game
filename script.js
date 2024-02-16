@@ -132,6 +132,13 @@ function updateFantasyCheckboxes(wildWestId, fantasyGoodId, fantasyEvilId) {
   if (!wildWestCheckbox.checked) {
     fantasyGoodCheckbox.checked = false;
     fantasyEvilCheckbox.checked = false;
+  } else {
+    // If Fantasy Good is checked, uncheck Fantasy Evil; if Fantasy Evil is checked, uncheck Fantasy Good
+    if (fantasyGoodCheckbox.checked) {
+      fantasyEvilCheckbox.checked = false;
+    } else if (fantasyEvilCheckbox.checked) {
+      fantasyGoodCheckbox.checked = false;
+    }
   }
 }
 
