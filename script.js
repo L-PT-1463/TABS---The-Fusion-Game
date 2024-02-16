@@ -100,6 +100,7 @@ const checkboxes1 = document.querySelectorAll('#factions1 input[type="checkbox"]
 checkboxes1.forEach(checkbox => {
   checkbox.addEventListener('change', function() {
     updateWildWestCheckbox(checkboxes1, 'wildWestToggle1');
+    updateFantasyCheckboxes('wildWestToggle1', 'fantasyGoodToggle1', 'fantasyEvilToggle1');
   });
 });
 
@@ -108,6 +109,7 @@ const checkboxes2 = document.querySelectorAll('#factions2 input[type="checkbox"]
 checkboxes2.forEach(checkbox => {
   checkbox.addEventListener('change', function() {
     updateWildWestCheckbox(checkboxes2, 'wildWestToggle2');
+    updateFantasyCheckboxes('wildWestToggle2', 'fantasyGoodToggle2', 'fantasyEvilToggle2');
   });
 });
 
@@ -118,6 +120,19 @@ function updateWildWestCheckbox(checkboxes, wildWestId) {
 
   // If at least five checkboxes are checked (excluding Wild West), check the Wild West checkbox; otherwise, uncheck it
   wildWestCheckbox.checked = checkedCount >= 5;
+}
+
+// Function to update Fantasy checkboxes based on Wild West checkbox
+function updateFantasyCheckboxes(wildWestId, fantasyGoodId, fantasyEvilId) {
+  const wildWestCheckbox = document.getElementById(wildWestId);
+  const fantasyGoodCheckbox = document.getElementById(fantasyGoodId);
+  const fantasyEvilCheckbox = document.getElementById(fantasyEvilId);
+
+  // If Wild West is not checked, uncheck Fantasy Good and Fantasy Evil
+  if (!wildWestCheckbox.checked) {
+    fantasyGoodCheckbox.checked = false;
+    fantasyEvilCheckbox.checked = false;
+  }
 }
 
 updateAvailableActions(); // Initial call to set up available actions on page load
