@@ -19,5 +19,7 @@ If you have any feedback, suggestions, or need support while playing "TABS - The
 Acknowledgements:
 
 Special thanks to Landfall Games for creating Totally Accurate Battle Simulator and providing a platform for community-driven content like "TABS - The Fusion Game."
+Most images are sourced from the Fandom Wiki for TABS or from screenshots of the game.
+
 Thanks also to the contributors :
   AnJoMort0
