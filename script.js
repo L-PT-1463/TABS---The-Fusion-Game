@@ -128,17 +128,23 @@ function updateFantasyCheckboxes(wildWestId, fantasyGoodId, fantasyEvilId) {
   const fantasyGoodCheckbox = document.getElementById(fantasyGoodId);
   const fantasyEvilCheckbox = document.getElementById(fantasyEvilId);
 
-  // If Wild West is not checked, uncheck Fantasy Good and Fantasy Evil
+  // If Wild West is not checked, uncheck Fantasy Good and Fantasy Evil and disable them
   if (!wildWestCheckbox.checked) {
     fantasyGoodCheckbox.checked = false;
     fantasyEvilCheckbox.checked = false;
+    fantasyGoodCheckbox.disabled = true;
+    fantasyEvilCheckbox.disabled = true;
   } else {
-    // If Fantasy Good is checked, uncheck Fantasy Evil; if Fantasy Evil is checked, uncheck Fantasy Good
-    if (fantasyGoodCheckbox.checked) {
-      fantasyEvilCheckbox.checked = false;
-    } else if (fantasyEvilCheckbox.checked) {
-      fantasyGoodCheckbox.checked = false;
-    }
+    // If Wild West is checked, enable Fantasy Good and Fantasy Evil
+    fantasyGoodCheckbox.disabled = false;
+    fantasyEvilCheckbox.disabled = false;
+  }
+  
+  // If Fantasy Good is checked, disable Fantasy Evil, and vice versa
+  if (fantasyGoodCheckbox.checked) {
+    fantasyEvilCheckbox.disabled = true;
+  } else if (fantasyEvilCheckbox.checked) {
+    fantasyGoodCheckbox.disabled = true;
   }
 }
 
