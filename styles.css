@@ -150,3 +150,12 @@ body {
   .sub_unit {
     margin-top: 1px;
 }
+
+#factions1 {
+  text-align: right;
+  font-family: 'Helvetica', sans-serif;
+}
+
+#factions2 {
+  font-family: 'Helvetica', sans-serif;
+}

@@ -95,4 +95,29 @@ function flashTextYellow(elementId) {
     }, 500);
   }
 
+// Add an event listener to each checkbox in factions1
+const checkboxes1 = document.querySelectorAll('#factions1 input[type="checkbox"]');
+checkboxes1.forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+    updateWildWestCheckbox(checkboxes1, 'wildWestToggle1');
+  });
+});
+
+// Add an event listener to each checkbox in factions2
+const checkboxes2 = document.querySelectorAll('#factions2 input[type="checkbox"]');
+checkboxes2.forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+    updateWildWestCheckbox(checkboxes2, 'wildWestToggle2');
+  });
+});
+
+// Function to update the Wild West checkbox based on the checked checkboxes count
+function updateWildWestCheckbox(checkboxes, wildWestId) {
+  const wildWestCheckbox = document.getElementById(wildWestId);
+  const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked && checkbox.id !== wildWestId).length;
+
+  // If at least five checkboxes are checked (excluding Wild West), check the Wild West checkbox; otherwise, uncheck it
+  wildWestCheckbox.checked = checkedCount >= 5;
+}
+
 updateAvailableActions(); // Initial call to set up available actions on page load
