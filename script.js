@@ -86,6 +86,9 @@ document.getElementById('reset').addEventListener('click', function () {
   // Reset Fantasy checkboxes
   updateFantasyCheckboxes('wildWestToggle1', 'fantasyGoodToggle1', 'fantasyEvilToggle1');
   updateFantasyCheckboxes('wildWestToggle2', 'fantasyGoodToggle2', 'fantasyEvilToggle2');
+
+  checkboxes1.forEach(checkbox => updateLabelColor(checkbox, 'red'));
+  checkboxes2.forEach(checkbox => updateLabelColor(checkbox, 'blue'));
 });
 
 document.addEventListener('keyup', function (event) {
@@ -120,8 +123,9 @@ function flashTextYellow(elementId) {
 const checkboxes1 = document.querySelectorAll('#factions1 input[type="checkbox"]');
 checkboxes1.forEach(checkbox => {
   checkbox.addEventListener('change', function() {
-    updateWildWestCheckbox(checkboxes1, 'wildWestToggle1');
+    updateWildWestCheckbox(checkboxes1, 'wildWestToggle1', 'red');
     updateFantasyCheckboxes('wildWestToggle1', 'fantasyGoodToggle1', 'fantasyEvilToggle1');
+    updateLabelColor(checkbox, 'red');
   });
 });
 
@@ -129,22 +133,24 @@ checkboxes1.forEach(checkbox => {
 const checkboxes2 = document.querySelectorAll('#factions2 input[type="checkbox"]');
 checkboxes2.forEach(checkbox => {
   checkbox.addEventListener('change', function() {
-    updateWildWestCheckbox(checkboxes2, 'wildWestToggle2');
+    updateWildWestCheckbox(checkboxes2, 'wildWestToggle2', 'blue');
     updateFantasyCheckboxes('wildWestToggle2', 'fantasyGoodToggle2', 'fantasyEvilToggle2');
+    updateLabelColor(checkbox, 'blue');
   });
 });
 
-// Function to update the Wild West checkbox based on the checked checkboxes count
-function updateWildWestCheckbox(checkboxes, wildWestId) {
+// Function to update Wild West checkbox based on the checked checkboxes count
+function updateWildWestCheckbox(checkboxes, wildWestId, playerColor) {
   const wildWestCheckbox = document.getElementById(wildWestId);
-  const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked && checkbox.id !== wildWestId).length;
+  const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked && checkbox.id !== wildWestId && checkbox.id !== 'fantasyGoodToggle1' && checkbox.id !== 'fantasyGoodToggle2' && checkbox.id !== 'fantasyEvilToggle1' && checkbox.id !== 'fantasyEvilToggle2').length;
 
   // If at least five checkboxes are checked (excluding Wild West), check the Wild West checkbox; otherwise, uncheck it
   wildWestCheckbox.checked = checkedCount >= 5;
+  updateLabelColor(wildWestCheckbox, playerColor); // Update label color for Wild West
 }
 
 // Function to update Fantasy checkboxes based on Wild West checkbox
-function updateFantasyCheckboxes(wildWestId, fantasyGoodId, fantasyEvilId) {
+function updateFantasyCheckboxes(wildWestId, fantasyGoodId, fantasyEvilId, playerColor) {
   const wildWestCheckbox = document.getElementById(wildWestId);
   const fantasyGoodCheckbox = document.getElementById(fantasyGoodId);
   const fantasyEvilCheckbox = document.getElementById(fantasyEvilId);
@@ -160,12 +166,14 @@ function updateFantasyCheckboxes(wildWestId, fantasyGoodId, fantasyEvilId) {
     fantasyEvilCheckbox.checked = false;
     fantasyGoodCheckbox.disabled = true;
     fantasyEvilCheckbox.disabled = true;
+    updateLabelColor(fantasyGoodCheckbox, playerColor);
+    updateLabelColor(fantasyEvilCheckbox, playerColor);
   } else {
     // If Wild West is checked, enable Fantasy Good and Fantasy Evil
     fantasyGoodCheckbox.disabled = false;
     fantasyEvilCheckbox.disabled = false;
   }
-  
+
   // If Fantasy Good is checked, disable Fantasy Evil, and vice versa
   if (fantasyGoodCheckbox.checked) {
     fantasyEvilCheckbox.disabled = true;
@@ -195,6 +203,22 @@ function updateFantasyCheckboxes(wildWestId, fantasyGoodId, fantasyEvilId) {
     fantasyEvilToggle2.disabled = false;
   }
 
+  // Update label colors for Fantasy checkboxes
+  updateLabelColor(fantasyGoodCheckbox, playerColor);
+  updateLabelColor(fantasyEvilCheckbox, playerColor);
 }
 
-updateAvailableActions(); // Initial call to set up available actions on page load
+// Function to update label color based on checkbox state
+function updateLabelColor(checkbox, color) {
+  const label = checkbox.closest('label');
+  if (checkbox.checked) {
+    label.style.color = color;
+  } else {
+    label.style.color = ''; // Reset to default color
+  }
+}
+
+// Initial call to set up available actions on page load
+checkboxes1.forEach(checkbox => updateLabelColor(checkbox, 'red'));
+checkboxes2.forEach(checkbox => updateLabelColor(checkbox, 'blue'));
+updateAvailableActions();

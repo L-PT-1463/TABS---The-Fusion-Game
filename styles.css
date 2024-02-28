@@ -124,7 +124,7 @@ body {
     max-width: 150px;
     max-height: 150px;
     margin-bottom: 10px;
-}
+  }
 
   /* Adjust the size of icons */
   img[src*="_HD_Icon.png"] {
@@ -132,7 +132,7 @@ body {
     max-height: 25px;
     margin-left: 5px;
     margin-right: 5px;
-}
+  }
 
   .faction {
     margin-top: 40px;
@@ -141,21 +141,21 @@ body {
 
   .tier {
     margin-top: 20px;
-}
+  }
 
   .unit {
     margin-top: 20px;
-}
+  }
 
   .sub_unit {
     margin-top: 1px;
-}
+  }
 
-#factions1 {
-  text-align: right;
-  font-family: 'Helvetica', sans-serif;
-}
+  #factions1 {
+    text-align: right;
+    font-family: 'Helvetica', sans-serif;
+  }
 
-#factions2 {
-  font-family: 'Helvetica', sans-serif;
-}
+  #factions2 {
+    font-family: 'Helvetica', sans-serif;
+  }
