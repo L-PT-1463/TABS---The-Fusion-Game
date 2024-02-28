@@ -65,6 +65,27 @@ document.getElementById('reset').addEventListener('click', function () {
   score2 = 0;
   updateScoreDisplay(score1, 'score1');
   updateScoreDisplay(score2, 'score2');
+
+  // Uncheck all checkboxes except tribal
+  checkboxes1.forEach(checkbox => {
+    if (checkbox.id !== 'tribalToggle1') {
+      checkbox.checked = false;
+    }
+  });
+
+  checkboxes2.forEach(checkbox => {
+    if (checkbox.id !== 'tribalToggle2') {
+      checkbox.checked = false;
+    }
+  });
+
+  // Reset Wild West checkbox
+  updateWildWestCheckbox(checkboxes1, 'wildWestToggle1');
+  updateWildWestCheckbox(checkboxes2, 'wildWestToggle2');
+
+  // Reset Fantasy checkboxes
+  updateFantasyCheckboxes('wildWestToggle1', 'fantasyGoodToggle1', 'fantasyEvilToggle1');
+  updateFantasyCheckboxes('wildWestToggle2', 'fantasyGoodToggle2', 'fantasyEvilToggle2');
 });
 
 document.addEventListener('keyup', function (event) {
