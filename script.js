@@ -127,6 +127,11 @@ function updateFantasyCheckboxes(wildWestId, fantasyGoodId, fantasyEvilId) {
   const wildWestCheckbox = document.getElementById(wildWestId);
   const fantasyGoodCheckbox = document.getElementById(fantasyGoodId);
   const fantasyEvilCheckbox = document.getElementById(fantasyEvilId);
+  const fantasyGoodToggle1 = document.getElementById("fantasyGoodToggle1");
+  const fantasyGoodToggle2 = document.getElementById("fantasyGoodToggle2");
+  const fantasyEvilToggle1 = document.getElementById("fantasyEvilToggle1");
+  const fantasyEvilToggle2 = document.getElementById("fantasyEvilToggle2");
+
 
   // If Wild West is not checked, uncheck Fantasy Good and Fantasy Evil and disable them
   if (!wildWestCheckbox.checked) {
@@ -146,6 +151,29 @@ function updateFantasyCheckboxes(wildWestId, fantasyGoodId, fantasyEvilId) {
   } else if (fantasyEvilCheckbox.checked) {
     fantasyGoodCheckbox.disabled = true;
   }
+
+  // If Fantasy Good is checked for Red Player, disable it for the Blue Player and vice versa
+  if (fantasyGoodToggle1.checked) {
+    fantasyGoodToggle2.disabled = true;
+  } else if (fantasyGoodToggle2.checked) {
+    fantasyGoodToggle1.disabled = true;
+  } else if (!fantasyEvilToggle1.checked) {
+    fantasyGoodToggle1.disabled = false;
+  } else if (!fantasyEvilToggle2.checked) {
+    fantasyGoodToggle2.disabled = false;
+  }
+
+  // If Fantasy Evil is checked for Red Player, disable it for the Blue Player and vice versa
+  if (fantasyEvilToggle1.checked) {
+    fantasyEvilToggle2.disabled = true;
+  } else if (fantasyEvilToggle2.checked) {
+    fantasyEvilToggle1.disabled = true;
+  } else if (!fantasyGoodToggle1.checked) {
+    fantasyEvilToggle1.disabled = false;
+  } else if (!fantasyGoodToggle2.checked) {
+    fantasyEvilToggle2.disabled = false;
+  }
+
 }
 
 updateAvailableActions(); // Initial call to set up available actions on page load
